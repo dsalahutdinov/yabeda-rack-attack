@@ -1,8 +1,6 @@
 # Yabeda::Rack::Attack
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/yabeda/rack/attack`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Built-in metrics for rack-attack monitoring out of the box! Part of the [yabeda](https://github.com/yabeda-rb/yabeda) suite.
 
 ## Installation
 
@@ -20,9 +18,14 @@ Or install it yourself as:
 
     $ gem install yabeda-rack-attack
 
-## Usage
+## Metrics
 
-TODO: Write usage instructions here
+Local per-process metrics
+
+# `rack_attack_throttled_requests_total` - counter of throttled requests (segmented by rack-attack name and descriminator)
+# `rack_attack_tracked_requests_total` - counter of tracked requests (segmented by rack-attack name)
+# `rack_attack_safelisted_requests_total` - counter of safelisted requests (segmented by name)
+# `rack_attack_blocklisted_requests_total` - counter of blocklisted requests (segmented by name)
 
 ## Development
 
