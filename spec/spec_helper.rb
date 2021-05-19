@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+require 'rails' if ENV['RAILS_ENABLED'] == '1'
 require 'yabeda/rack/attack'
 require 'rack/test'
 require 'byebug'

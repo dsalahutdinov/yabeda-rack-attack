@@ -9,7 +9,15 @@ module Yabeda
   module Rack
     module Attack
       ::Yabeda.configure do
-        ::Rack::Attack.notifier = ::Yabeda::Rack::Attack::Notifier.new
+        notifier = ::Yabeda::Rack::Attack::Notifier.new
+        if defined?(ActiveSupport::Notifications)
+          ActiveSupport::Notifications.subscribe(/rack_attack/) do |event_name, _start, _finish, _request_id, payload|
+            request = payload[:request]
+            notifier.instrument(event_name, request: request)
+          end
+        else
+          ::Rack::Attack.notifier = notifier
+        end
 
         group :rack_attack
 
