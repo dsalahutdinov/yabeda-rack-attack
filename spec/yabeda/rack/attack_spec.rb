@@ -20,7 +20,7 @@ RSpec.describe Yabeda::Rack::Attack do
     end
 
     Rack::Attack.track('special_agent') do |req|
-      req.user_agent == 'SpecialAgent'
+      req.user_agent
     end
 
     Rack::Attack.safelist('safelist_header') do |req|
@@ -51,7 +51,7 @@ RSpec.describe Yabeda::Rack::Attack do
     header 'User-Agent', 'SpecialAgent'
     expect { get '/check/user-agent' }.to change {
       ::Yabeda.rack_attack.tracked_requests_total.values[
-        { name: 'special_agent' }
+        { name: 'special_agent', discriminator: 'SpecialAgent' }
       ]
     }.by(1)
 
