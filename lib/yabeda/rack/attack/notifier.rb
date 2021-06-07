@@ -29,7 +29,7 @@ module Yabeda
 
         def track_tracked(request)
           ::Yabeda.rack_attack.tracked_requests_total.increment(
-            { name: name(request) }
+            { name: name(request), discriminator: discriminator(request) }
           )
         end
 

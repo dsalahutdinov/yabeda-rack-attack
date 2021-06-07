@@ -7,8 +7,8 @@ require 'yabeda/rack/attack/version'
 Gem::Specification.new do |spec|
   spec.name          = 'yabeda-rack-attack'
   spec.version       = Yabeda::Rack::Attack::VERSION
-  spec.authors       = ['Dmitriy Salakhutdinov']
-  spec.email         = ['dmitriy.salakhutdinov@instamart.ru']
+  spec.authors       = ['Dmitry Salahutdinov']
+  spec.email         = ['dsalahutdinov@gmail.com']
 
   spec.summary       = 'Monitoring for rack-attack rules matching'
   spec.description   = 'Extends Yabeda metrics to collect rack-attack metrics'
