@@ -19,9 +19,7 @@ RSpec.describe Yabeda::Rack::Attack do
       req.ip if req.path == '/throttled/1time/per1minute/by_ip'
     end
 
-    Rack::Attack.track('special_agent') do |req|
-      req.user_agent
-    end
+    Rack::Attack.track('special_agent', &:user_agent)
 
     Rack::Attack.safelist('safelist_header') do |req|
       req.env['HTTP_RACK_ATTACK'] == 'safelist'
